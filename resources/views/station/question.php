@@ -35,39 +35,19 @@
     </div>
     <script src="/js/jquery.min.js"></script>
     <script>
-
-
-    function submitForm(){
-      $("#questionForm").submit();
-      $.ajax({
-            url: "<?php echo App::make('url')->to('submitQ'); ?>",
-            type: "post",
-            data: dataForm ,
-            success: function (response) {
-               // you will get response from your php page (what you echo or print)
-               console.log(response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-               console.log(textStatus, errorThrown);
-            }
-
-
-        });
-        return false;
-    }
     $("[name='inputChoice']").click(function(){
        $("#questionForm").submit();
         return true;
     });
     $(document).ready(function(){
-      /*
+
        setTimeout(
         function()
         {
           alert("Time out!!!");
-
+          $("#questionForm").submit();
         }, 5000);
-      */
+
     });
 
     </script>

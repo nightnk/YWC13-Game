@@ -86,24 +86,28 @@ class StationController extends Controller
        $questionID = $request->input('questionID');
        $stationID= $request->input('stationID');
 
+
        $groupID=$request->session()->get('group');
        $correctChoice=0;
-       $resultsQ = DB::select('select question.correctChoiceId,choice.point from question join choice on choice.questionId=question.id where question.id = :id and choice.choiceId = :choiceId ' , ['id'=>$questionID,'choiceId'=>$choice]);
-       if($resultsQ){
-         if($resultsQ[0]->correctChoiceId==$choice){
-           $correctChoice=1;
-         }else {
-           $correctChoice=-1;
-         }
 
-       }
+       if($choice!=null) {
+           $correctChoice=0;
+           $resultsQ = DB::select('select question.correctChoiceId,choice.point from question join choice on choice.questionId=question.id where question.id = :id and choice.choiceId = :choiceId ' , ['id'=>$questionID,'choiceId'=>$choice]);
+           if($resultsQ){
 
+             if($resultsQ[0]->correctChoiceId==$choice){
+               $correctChoice=1;
+             }else {
+               $correctChoice=-1;
+             }
+
+           }
+            DB::update('update point set point = point + :point where groupId =:groupId', ['point'=>$resultsQ[0]->point,'groupId'=>$groupID]);
+      }
 
        DB::update('update station set status = 0 where id =:stationId', ['stationId'=>$stationID]);
-       DB::update('update point set point = point + :point where groupId =:groupId', ['point'=>$resultsQ[0]->point,'groupId'=>$groupID]);
        DB::insert('insert into group_log (groupId, stationId,answer,status) values (?, ?, ?, ?)', [$groupID, $stationID,$choice,$correctChoice]);
-
-        $resultsG = DB::select('select point from point where groupId = :groupId' , ['groupId'=>$groupID]);
+       $resultsG = DB::select('select point from point where groupId = :groupId' , ['groupId'=>$groupID]);
        $data = array(
          'correctChoice'=>$correctChoice,
          'point'=>$resultsG[0]->point

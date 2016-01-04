@@ -14,7 +14,8 @@
             <div class="panel-body">
               <p>
               <?php
-              if($correctChoice==1) echo "ตอบคำถามถูกต้อง";
+              if($correctChoice ==null) echo "ตอบไม่ทันเวลา";
+              else if($correctChoice==1) echo "ตอบคำถามถูกต้อง";
               else if($correctChoice==-1) echo "ตอบคำถามไม่ถูกต้อง";
 
               echo "<br> คะแนนรวม : ".$point;
