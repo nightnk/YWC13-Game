@@ -32,7 +32,7 @@ class StationController extends Controller
     $groupID=$request->session()->get('group');
 
     $resultStation = DB::select('select * from station where id =:stationId', ['stationId'=>$stationID]);
-
+    
     if($resultStation[0]->status==1){
         $diffTimeActivity=time()-$resultStation[0]->lastActivity;
         //check time out
@@ -41,7 +41,6 @@ class StationController extends Controller
         }
 
     }
-
 
     $resultGroup = DB::select('select status,timestamp from group_log where groupId = :group and stationId=:stationId  ORDER BY id DESC LIMIT 1', ['group'=>$groupID,'stationId'=>$stationID]);
 
@@ -82,6 +81,7 @@ class StationController extends Controller
   }
 
     public function submitQ(Request $request){
+
        $choice = $request->input('inputChoice');
        $questionID = $request->input('questionID');
        $stationID= $request->input('stationID');
@@ -112,6 +112,7 @@ class StationController extends Controller
          'correctChoice'=>$correctChoice,
          'point'=>$resultsG[0]->point
        );
+      
        return view('station.result',$data);
 
     }

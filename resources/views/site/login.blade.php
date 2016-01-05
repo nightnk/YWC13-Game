@@ -9,10 +9,12 @@
 
       <div class="container-fluid">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
-
+            <div class="col-md-12 text-center">
+              <img style="width:50%;" src="/img/logo.png" />
+            </div>
+            <div class="col-md-10 col-md-offset-2 col-xs-12 ">
               <form action="#" method="post" id="loginForm" name="loginForm" class="contentCenter" >
-                 <h3 class="text-center">Enter Password</h3>
+                 <h3 class="text-center">ใส่รหัส</h3>
                 <div class="row row-number">
                   <button type="button" class="btn btn-number" name="btnNumber" id="btn_1">1</button>
                   <button type="button" class="btn btn-number" name="btnNumber"  id="btn_2">2</button>
