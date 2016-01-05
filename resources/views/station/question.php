@@ -17,7 +17,7 @@
             <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
               <div class="score-border">
                 <form class="form-horizontal" id="questionForm" action="<?php echo App::make('url')->to('submitQ'); ?>" method="post">
-                
+
                 <div class="text-center question-text">
                   <h2><?php echo $question->text; ?></h2>
                 </div>
@@ -61,7 +61,7 @@
         {
           alert("Time out!!!");
           $("#questionForm").submit();
-        }, 5000);
+        }, 15000);
     });
 
     </script>

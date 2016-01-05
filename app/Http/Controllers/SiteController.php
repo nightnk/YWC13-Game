@@ -29,12 +29,12 @@ class SiteController extends Controller
          $result=array('login'=>'error','code'=>0);
          if($user){
             $new_sessid   = \Session::getId(); //get new session_id after user sign in
-            $last_session = \Session::getHandler()->read($user->lastSessionId); // retrive last session
-
-            if ($last_session) {
-                if (\Session::getHandler()->destroy($user->lastSessionId));
+            if($user->lastSessionId!=null){
+                $last_session = \Session::getHandler()->read($user->lastSessionId); // retrive last session
+                if ($last_session) {
+                    if (\Session::getHandler()->destroy($user->lastSessionId));
+                }
             }
-
             DB::update('update users set lastSessionId = :lastSessionId where id = :id', ['lastSessionId' =>$new_sessid ,'id' => $user->id]);
             $request->session()->put('group', $user->group);
             $request->session()->put('id', $user->id);

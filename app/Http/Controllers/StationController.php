@@ -32,11 +32,11 @@ class StationController extends Controller
     $groupID=$request->session()->get('group');
 
     $resultStation = DB::select('select * from station where id =:stationId', ['stationId'=>$stationID]);
-    
+
     if($resultStation[0]->status==1){
         $diffTimeActivity=time()-$resultStation[0]->lastActivity;
         //check time out
-        if($diffTimeActivity<13){
+        if($diffTimeActivity<20){
           return view('station.notAnswer',['status'=>'station']);
         }
 
@@ -112,7 +112,7 @@ class StationController extends Controller
          'correctChoice'=>$correctChoice,
          'point'=>$resultsG[0]->point
        );
-      
+
        return view('station.result',$data);
 
     }
