@@ -56,10 +56,10 @@
                   echo "<div class=\"radio\">";
                   // echo "<label class=\"choice\">";
                   // echo "</label>";
-                  echo "<input type=\"radio\" name=\"inputChoice\" id=\"".$choice->choiceId."\"  value=\"".$choice->choiceId."\" >";
-                  echo "<div class=\"btn btn-default btn-lg btn-block btn-answer\">";
+                  // echo "<input type=\"radio\" name=\"inputChoice\" id=\"".$choice->choiceId."\"  value=\"".$choice->choiceId."\" >";
+                  echo "<button name=\"inputChoice\" id=\"".$choice->choiceId."\"  value=\"".$choice->choiceId."\" class=\"btn btn-default btn-lg btn-block btn-answer\">";
                   echo  $choice->text;
-                  echo "</div>";
+                  echo "</button>";
                   echo "</div>";
                 }
                   echo "<input type=\"hidden\" name=\"questionID\" value=\"".$question->id."\" >";

@@ -126,18 +126,18 @@ input[type=radio] {
 .btn-answer,
 .btn-answer:visited {
 	font-size: 1em;
-	background-color: rgba(0, 0, 0, 0.5);
-	box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.25), inset 0px 0px 3px 0px rgba(0,0,0,0.4);
-	color: rgb(240,240,240);
+	background-color: rgba(0, 0, 0, 0.5) !important;
+	box-shadow: inset 0px 0px 15px 0px rgba(0,0,0,0.25), inset 0px 0px 3px 0px rgba(0,0,0,0.4) !important;
+	color: rgb(240,240,240) !important;
 	border: 0;
 }
 
 .btn-answer:active,
 .btn-answer:hover,
 .btn-answer:focus {
-	color: rgb(240,240,240);
-	background-color: rgba(0, 0, 0, 0.6);
-	box-shadow: inset 0px 3px 15px 0px rgba(0,0,0,0.25), inset 0px 4px 3px 0px rgba(0,0,0,0.4);
+	color: rgb(240,240,240) !important;
+	background-color: rgba(0, 0, 0, 0.6) !important;
+	box-shadow: inset 0px 3px 15px 0px rgba(0,0,0,0.25), inset 0px 4px 3px 0px rgba(0,0,0,0.4) !important;
 }
 
 input[type=radio]:checked ~ .ans-text {
