@@ -8,6 +8,10 @@ body {
   font-family: 'quarklight', Roboto, Arial, Tahoma, sans-serif;
 }
 
+.modal-backdrop {
+	opacity: 1 !important;
+}
+
 .modal-dialog {
 	margin: 3rem;
 	margin-top: 50%;
