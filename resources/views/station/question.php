@@ -5,8 +5,33 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/quark.css">
     <link rel="stylesheet" href="/css/station.css">
+
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+      <div class="progress-bar">
+        <div class="bar">
+          <div class="peg">
+
+          </div>
+        </div>
+      </div>
+
+      <div id="timeout-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">หมดเวลาแล้ว...</h4>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="submitForm();">จ่ะ !</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
 
       <div class="container-fluid">
           <div class="row">
@@ -16,7 +41,7 @@
 
             <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
               <div class="score-border">
-                <form onsubmit="return false;" class="form-horizontal" id="questionForm" action="<?php echo App::make('url')->to('submitQ'); ?>" method="post">
+                <form class="form-horizontal" id="questionForm" action="<?php echo App::make('url')->to('submitQ'); ?>" method="post">
 
                 <div class="text-center question-text">
                   <h2><?php echo $question->text; ?></h2>
@@ -45,7 +70,6 @@
             </div>
            </div>
         </div>
-    <script src="/js/jquery.min.js"></script>
     <script>
 
     $("[name='inputChoice']").click(function(){
@@ -55,15 +79,40 @@
       }, 1000);
     });
 
+    function submitForm() {
+      console.log('submitting form');
+      $("#questionForm").submit();
+    }
+
     $(document).ready(function(){
 
+      var $progressbar = $('.progress-bar .bar')
 
-       // setTimeout(
-       //  function()
-       //  {
-       //    alert("Time out!!!");
-       //    $("#questionForm").submit();
-       //  }, 15000);
+      function set(progress) {
+        $progressbar.width(progress * 100 + '%');
+      }
+
+      function showModal() {
+        $('#timeout-modal').modal();
+      }
+
+      var total = 15000;
+      var interval = 150;
+
+      var left = total;
+      set(1.0);
+      var intervalId = setInterval(function () {
+        left -= interval;
+        set(left / total);
+
+        if (left <= 0) {
+          clearInterval(intervalId);
+
+          console.log('timeout');
+          showModal();
+        }
+      }, interval);
+
     });
 
     </script>

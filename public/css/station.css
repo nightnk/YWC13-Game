@@ -1,10 +1,33 @@
 body {
     background : url("/img/bg.png") no-repeat center center fixed;
+    background-color: rgb(9,31,46);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   font-family: 'quarklight', Roboto, Arial, Tahoma, sans-serif;
+}
+
+.modal-dialog {
+	margin: 3rem;
+	margin-top: 50%;
+}
+
+.modal-title {
+	text-align: center;
+	font-size: 2.7rem;
+}
+
+.modal-footer {
+	text-align: center !important;
+}
+
+.modal-footer .btn {
+	font-size: 2rem;
+	font-weight: bold;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	text-shadow: 0px 2px 0px rgb(76,174,76);
 }
 
 .logo {
@@ -76,6 +99,7 @@ body {
 .question-text h2 {
 	margin: 3rem 0rem 2rem 0rem;
 	letter-spacing: 0.8px;
+	text-shadow: 0px 2px 0px rgba(0,0,0,0.6);
 }
 
 .radio {
@@ -193,4 +217,41 @@ input[type=radio]:checked ~ .ans-text {
 	border-color: white;
 
 	padding: 20px 20px 20px 20px;
+}
+
+.progress-bar {
+  pointer-events: none;
+}
+
+.progress-bar .bar {
+  background: #29d;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.25),
+  						0px 0px 3px 0px rgba(0,0,0,0.4);
+
+  transition: 0.2s ease;
+ 	-webkit-transition: 0.2s ease;
+}
+
+/* Fancy blur effect */
+.progress-bar .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 0px;
+  height: 100%;
+  box-shadow: 0 0 10px rgb(42,128,185), 0 0 5px rgb(42,128,185);
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
 }
