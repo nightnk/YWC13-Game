@@ -19,8 +19,8 @@
           <div class="score-border text-center">
               <p class="notice-font">
                 <?php
-                  if($status=="station") echo "สถานนี้มีคนเล่นอยู่";
-                  else if($status=="submited") echo "เล่นฐานนี้ตอบไปแล้ว";
+                  if($status=="station") echo "สถานีนี้มีคนเล่นอยู่";
+                  else if($status=="submited") echo "ตอบฐานนี้ไปแล้ว";
                   else if($status=="time") echo "ต้องรอเวลา";
                  ?>
               </p>
