@@ -11,30 +11,30 @@
       <div class="container-fluid">
           <div class="row">
             <div class="col-md-12 text-center">
-              <img style="width:50%;" src="/img/logo.png" />
+              <img class="logo" src="/img/logo.png" />
             </div>
 
             <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
               <div class="score-border">
-                <form class="form-horizontal" id="questionForm" action="<?php echo App::make('url')->to('submitQ'); ?>" method="post">
+                <form onsubmit="return false;" class="form-horizontal" id="questionForm" action="<?php echo App::make('url')->to('submitQ'); ?>" method="post">
 
                 <div class="text-center question-text">
                   <h2><?php echo $question->text; ?></h2>
                 </div>
 
-                <div class="text-center question">
+                <!-- <div class="text-center question">
                   <img src="/img/line.png">
-                </div>
+                </div> -->
                 <?php
                 foreach ($choices as $choice) {
 
                   echo "<div class=\"radio\">";
-                  echo "<label class=\"choice\">";
+                  // echo "<label class=\"choice\">";
+                  // echo "</label>";
                   echo "<input type=\"radio\" name=\"inputChoice\" id=\"".$choice->choiceId."\"  value=\"".$choice->choiceId."\" >";
-                  echo "<div class=\"ans-text text-center\">";
+                  echo "<div class=\"btn btn-default btn-lg btn-block btn-answer\">";
                   echo  $choice->text;
                   echo "</div>";
-                  echo "</label>";
                   echo "</div>";
                 }
                   echo "<input type=\"hidden\" name=\"questionID\" value=\"".$question->id."\" >";
@@ -56,12 +56,14 @@
     });
 
     $(document).ready(function(){
-       setTimeout(
-        function()
-        {
-          alert("Time out!!!");
-          $("#questionForm").submit();
-        }, 15000);
+
+
+       // setTimeout(
+       //  function()
+       //  {
+       //    alert("Time out!!!");
+       //    $("#questionForm").submit();
+       //  }, 15000);
     });
 
     </script>
