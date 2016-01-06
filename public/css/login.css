@@ -1,10 +1,17 @@
 body {
     background : url("/img/bg.png") no-repeat center center fixed;
+    background-color: rgb(9,31,46);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
+.logo {
+  width: 40%;
+  padding-top: 1.5rem;
+}
+
 .contentCenter {
 text-align:center;
 }
@@ -13,7 +20,7 @@ text-align:center;
   color: #fff;
 }
 .row-number{
-   padding-top: 10px;
+  padding-top: 5px;
 }
 
 .row-number button {
@@ -21,29 +28,66 @@ text-align:center;
 }
 
 .row-number button:active {
-  animation-name: pulse;
-  -webkit-animation-name: pulse;  
+  /*animation-name: pulse;
+  -webkit-animation-name: pulse;
 
-  animation-duration: 1.5s; 
+  animation-duration: 1.5s;
   -webkit-animation-duration: 1.5s;
 
   animation-iteration-count: infinite;
-  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;*/
 }
 
-.btn-number{
+.title {
+  font-family: 'quark';
+  font-size: 2rem;
+  margin: 1rem 0rem;
+}
+
+.passcodes {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.passcodes .each {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin: 0.5rem;
+  border-radius: 6px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.9);
+}
+
+.passcodes .each.filled {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.btn-number,
+.btn-number:focus,
+.btn-number:visited{
     padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
     border-radius: 40px;
+    vertical-align: middle;
     width: 70px;
     height: 70px;
     color: #fff;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-color:  rgba(255, 255, 255, 0.6);;
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    border-width: 2px;
+    box-sizing: border-box;
+    outline: 0;
+
+    transition: background-color 0.25s ease;
+    -webkit-transition: background-color 0.25s ease;
 }
-.btn-number : hover{
-  color: #ff2;
+
+.btn-number:active{
+  outline: 0;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
 }
 
 /* animation when click */
@@ -51,29 +95,29 @@ text-align:center;
 @keyframes pulse {
   0% {
     transform: scale(0.9);
-    opacity: 0.7;   
+    opacity: 0.7;
   }
   50% {
     transform: scale(1);
-    opacity: 1; 
-  } 
+    opacity: 1;
+  }
   100% {
     transform: scale(0.9);
-    opacity: 0.7; 
-  }     
+    opacity: 0.7;
+  }
 }
 
 @-webkit-keyframes pulse {
   0% {
     -webkit-transform: scale(0.95);
-    opacity: 0.7;   
+    opacity: 0.7;
   }
   50% {
     -webkit-transform: scale(1);
-    opacity: 1; 
-  } 
+    opacity: 1;
+  }
   100% {
     -webkit-transform: scale(0.95);
-    opacity: 0.7; 
-  }     
+    opacity: 0.7;
+  }
 }
