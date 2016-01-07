@@ -24,7 +24,6 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">หมดเวลาแล้ว...</h4>
             </div>
             <div class="modal-footer">
@@ -105,6 +104,10 @@
       var intervalId = setInterval(function () {
         left -= interval;
         set(left / total);
+
+        if (left <= 5000) {
+          $progressbar.addClass('red');
+        }
 
         if (left <= 0) {
           clearInterval(intervalId);
