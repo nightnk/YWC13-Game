@@ -95,7 +95,7 @@
             console.log('response:', response);
 					   console.log("login :"+response.login);
 					   if(response.code === "1"){
-                if (response.url) {
+                if (response.url !== '/') {
                   document.location.href = '/' + response.url;
                 }
                 else {
