@@ -20,6 +20,19 @@
         </div>
       </div>
 
+      <div id="cheating-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">โกงป่ะ! #teamBee</h4>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="goHome();">ค่ะ !</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
       <div id="timeout-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -72,6 +85,27 @@
         </div>
     <script>
 
+    <?php
+      $length = 16;
+      $randomString = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
+    ?>
+
+    var token = '<?=$randomString?>';
+
+    var isValid = true;
+
+    console.log('token:', token);
+    console.log('storageToken:', localStorage.getItem(token));
+
+    if (!localStorage.getItem(token)) {
+      localStorage.setItem(token, true);
+    } else {
+      // duplicate token
+      showCheating();
+      console.log('fuck you !');
+      throw new Error('fuck youuuu');
+    }
+
     $("[name='inputChoice']").click(function(){
       setTimeout(function() {
        $("#questionForm").submit();
@@ -84,9 +118,19 @@
       $("#questionForm").submit();
     }
 
+    function showCheating() {
+      isValid = false;
+      $('#cheating-modal').modal();
+    }
+
+    function goHome() {
+      console.log('closing...');
+      window.location = '/';
+    }
+
     $(document).ready(function(){
 
-      var $progressbar = $('.progress-bar .bar')
+      var $progressbar = $('.progress-bar .bar');
 
       function set(progress) {
         $progressbar.width(progress * 100 + '%');
@@ -107,6 +151,11 @@
 
         if (left <= 5000) {
           $progressbar.addClass('red');
+        }
+
+        if (!isValid) {
+          // จะไม่โชว์ ถ้าเค้าโกง
+          clearInterval(intervalId);
         }
 
         if (left <= 0) {
