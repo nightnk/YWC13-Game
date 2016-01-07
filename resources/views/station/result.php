@@ -18,7 +18,7 @@
           <div class="score-border">
               <p class="notice-font border ">
               <?php
-              $tmpStation=array(9,6,10,14,2);
+              $tmpStation=array(9,6,10,14,19);
               if(in_array($stationID,$tmpStation)){
                 echo "ฐานนี้ไม่มีคะแนนให้ นะครับ ^-^";
               }
