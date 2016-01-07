@@ -1,6 +1,7 @@
 <html>
     <head>
     <title> :: Login :: </title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fonts/quark.css">
@@ -46,7 +47,7 @@
                 </div>
                 <div class="row row-number" style="text-align: center;">
                   <!-- <button type="submit" class="btn btn-number" name="btnNumber">S</button> -->
-                  <button type="button" class="btn btn-number" name="btnNumber id="btn_0"">0</button>
+                  <button type="button" class="btn btn-number" name="btnNumber" id="btn_0">0</button>
                   <!-- <button type="button" class="btn btn-number" name="btnNumber">-</button> -->
                 </div>
 				<input type="hidden" class="form-control" id="inputKey" placeholder="Password" name="key" value="">

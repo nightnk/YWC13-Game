@@ -39,7 +39,7 @@ text-align:center;
 }
 
 .title {
-  font-family: 'quark';
+  font-family: 'quarklight';
   font-size: 2rem;
   margin: 1rem 0rem;
 }
@@ -64,6 +64,7 @@ text-align:center;
 
 .btn-number,
 .btn-number:focus,
+.btn-number:hover,
 .btn-number:visited{
     padding: 10px 16px;
     font-size: 2.5rem;
@@ -72,9 +73,9 @@ text-align:center;
     vertical-align: middle;
     width: 70px;
     height: 70px;
-    color: #fff;
+    color: #fff !important;
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.5) !important;
     border-width: 2px;
     box-sizing: border-box;
     outline: 0;
@@ -83,10 +84,10 @@ text-align:center;
     -webkit-transition: background-color 0.25s ease;
 }
 
-.btn-number:active{
+.btn-number:active {
   outline: 0;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
   border: none;
 }
 
