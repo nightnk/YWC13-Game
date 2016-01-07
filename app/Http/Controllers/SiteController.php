@@ -18,7 +18,11 @@ class SiteController extends Controller
 
   public function login(Request $request)
   {
-      return view('site.login');
+     $requestStation="";
+     if ($request->session()->has('requestStation')) {
+     $requestStation=$request->session()->get('requestStation');
+}
+      return view('site.login',['requestStation'=>$requestStation]);
   }
 
 

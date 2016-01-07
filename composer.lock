@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fcaf248f2ed934d961db2238b5a3ac8a",
-    "content-hash": "b294a830d4411fc4319af67d2e52b7ec",
+    "hash": "1d68dd1df9bb76504ffa5ee120c6db07",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -2413,7 +2412,7 @@
             ],
             "authors": [
                 {
-                    "name": "Francois Zaninotto"
+                    "name": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
