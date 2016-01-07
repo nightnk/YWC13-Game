@@ -13,10 +13,13 @@ class AuthenticateMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-     public function handle($request, Closure $next)
+    public function handle($request, Closure $next)
     {
 
-		
+      //stationCode
+      //$stationCode = Request::input('stationCode');
+       //$request->path();
+       $request->session()->put('requestStation', $request->path());
         if (!$request->session()->has('login')) {
             return redirect('login');
          }

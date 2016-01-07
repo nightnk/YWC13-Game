@@ -62,6 +62,7 @@ class StationController extends Controller
 
       }
     }
+
     DB::update('update station set status = 1 , lastActivity = :lastActivity where id =:stationId', ['stationId'=>$stationID,'lastActivity'=>time()]);
 
     //Random question
@@ -85,7 +86,7 @@ class StationController extends Controller
        $choice = $request->input('inputChoice');
        $questionID = $request->input('questionID');
        $stationID= $request->input('stationID');
-
+       $tmpSation=array(7,5,10,2,4);
 
        $groupID=$request->session()->get('group');
        $correctChoice=0;
@@ -108,6 +109,10 @@ class StationController extends Controller
        DB::update('update station set status = 0 where id =:stationId', ['stationId'=>$stationID]);
        DB::insert('insert into group_log (groupId, stationId,answer,status) values (?, ?, ?, ?)', [$groupID, $stationID,$choice,$correctChoice]);
        $resultsG = DB::select('select point from point where groupId = :groupId' , ['groupId'=>$groupID]);
+       if(in_array($stationID, $tmpSation)){
+
+       }
+
        $data = array(
          'correctChoice'=>$correctChoice,
          'point'=>$resultsG[0]->point
