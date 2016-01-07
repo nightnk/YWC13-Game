@@ -47,7 +47,7 @@
                 </div>
                 <div class="row row-number" style="text-align: center;">
                   <!-- <button type="submit" class="btn btn-number" name="btnNumber">S</button> -->
-                  <button type="button" class="btn btn-number" name="btnNumber id="btn_0"">0</button>
+                  <button type="button" class="btn btn-number" name="btnNumber" id="btn_0">0</button>
                   <!-- <button type="button" class="btn btn-number" name="btnNumber">-</button> -->
                 </div>
 				<input type="hidden" class="form-control" id="inputKey" placeholder="Password" name="key" value="">
