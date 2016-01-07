@@ -96,7 +96,7 @@ class StationController extends Controller
            $resultsQ = DB::select('select question.correctChoiceId,choice.point from question join choice on choice.questionId=question.id where question.id = :id and choice.choiceId = :choiceId ' , ['id'=>$questionID,'choiceId'=>$choice]);
            if($resultsQ){
 
-             if($resultsQ[0]->correctChoiceId==$choice){
+             if(trim($resultsQ[0]->correctChoiceId)==trim($choice)){
                $correctChoice=1;
              }else {
                $correctChoice=-1;
