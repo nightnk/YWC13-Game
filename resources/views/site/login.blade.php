@@ -92,9 +92,14 @@
 					data: dataForm ,
 					success: function (response) {
 					   // you will get response from your php page (what you echo or print)
-					   console.log("login :"+response.login)
-					   if(response.code=="1"){
-						   document.location.href="/";
+					   console.log("login :"+response.login);
+					   if(response.code === "1"){
+                if (response.url) {
+                  document.location.href = '/' + response.url;
+                }
+                else {
+                  document.location.href = "/";
+                }
 					   }else {
               $('.passcodes')
                .addClass('shake')
