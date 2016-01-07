@@ -18,9 +18,16 @@
           <div class="score-border">
               <p class="notice-font border ">
               <?php
-              if($correctChoice ==null) echo "ตอบไม่ทันเวลา";
-              else if($correctChoice==1) echo "ตอบคำถามถูกต้อง";
-              else if($correctChoice==-1) echo "ตอบคำถามไม่ถูกต้อง";
+              $tmpStation=array(9,6,10,14,2);
+              if(in_array($stationID,$tmpStation)){
+                echo "ฐานนี้ไม่มีคะแนนให้ นะครับ ^-^";
+              }
+              else {
+                if($correctChoice ==0) echo "ตอบไม่ทันเวลา";
+                else if($correctChoice==1) echo "ตอบคำถามถูกต้อง";
+                else if($correctChoice==-1) echo "ตอบคำถามไม่ถูกต้อง";
+              }
+
 
               echo "<br> คะแนนรวม : ".$point;
 
